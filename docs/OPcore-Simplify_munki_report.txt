@@ -1,0 +1,485 @@
+════════════════════════════════════════════════╗
+║                      Select hardware report                      ║
+╚══════════════════════════════════════════════════════════════════╝
+
+Note:
+- Ensure you are using the latest version of Hardware Sniffer before generating the hardware report.
+- Hardware Sniffer will not collect information related to Resizable BAR option of GPU (disabled by default) and monitor connections in Windows PE.
+
+E. Export hardware report (Recommended)
+
+Q. Quit
+
+Drag and drop your hardware report here (.JSON) or type "E" to export: E
+
+
+
+
+ Compatibility Checker                       ║
+╚══════════════════════════════════════════════════════════════════╝
+
+Checking compatibility with macOS for the following devices:
+
+1. CPU:
+   - Intel(R) Core(TM) i7-7700HQ: Up to macOS Tahoe 26
+2. GPU:
+   - NVIDIA GeForce GTX 1050 Ti: Maximum support up to macOS High Sierra 10.13
+      - OCLP Compatibility: macOS Big Sur 11 to macOS Sequoia 15
+      - Connected Monitor: SHARP HDMI (HDMI)
+   - Intel(R) HD Graphics 630: Up to macOS Tahoe 26
+      - Connected Monitor: CMN15C4 (Internal)
+3. Sound:
+   - Realtek Audio: Up to macOS Tahoe 26
+      - Audio Endpoints: 麦克风, 扬声器/听筒
+   - NVIDIA High Definition Audio: Unsupported
+      - Audio Endpoint: SHARP HDMI
+4. Network:
+   - Intel(R) Dual Band Wireless-AC 3165 #2: Up to macOS Tahoe 26
+      - Continuity Support: Partial (Handoff and Universal Clipboard with AirportItlwm)
+      Note: AirDrop, Universal Clipboard, Instant Hotspot,... not available
+   - Realtek PCIe GbE Family Controller: Up to macOS Tahoe 26
+5. Storage Controllers:
+   - HM170/QM170 Chipset SATA Controller [AHCI Mode]: Up to macOS Tahoe 26
+   - 标准 NVM Express 控制器: Up to macOS Tahoe 26
+6. Bluetooth:
+   - 英特尔(R) 无线 Bluetooth(R): Up to macOS Tahoe 26
+
+Press Enter to continue...
+
+
+ Select macOS Version                       ║
+╚══════════════════════════════════════════════════════════════════╝
+
+Suggested macOS version:
+- For better compatibility and stability, we suggest you to use only macOS Ventura 13 or older.
+
+Available macOS versions:
+
+   17. macOS High Sierra 10.13
+   18. macOS Mojave 10.14
+   19. macOS Catalina 10.15
+   20. macOS Big Sur 11
+   21. macOS Monterey 12
+   22. macOS Ventura 13
+   23. macOS Sonoma 14
+   24. macOS Sequoia 15
+   25. macOS Tahoe 26
+
+Note:
+- To select a major version, enter the number (e.g., 19).
+- To specify a full version, use the Darwin version format (e.g., 22.4.6).
+
+Q. Quit
+
+Please enter the macOS version you want to use (default: macOS Ventura 13): 24
+
+
+
+═════════════════════════════════════════════════════╗
+║                Select Required Kernel Extensions                 ║
+╚══════════════════════════════════════════════════════════════════╝
+
+Checking for required kernel extensions...
+
+*** Found Intel(R) Dual Band Wireless-AC 3165 #2 is Intel WiFi device.
+
+Note: Intel WiFi devices have two available kext options:
+
+1. AirportItlwm - Uses native WiFi settings menu
+   • Provides Handoff, Universal Clipboard, Location Services, Instant Hotspot support
+   • Supports enterprise-level security
+   • Since macOS Sequoia 15: Can work with OCLP root patch but may cause issues
+
+2. itlwm - More stable overall
+   • Works with HeliPort app instead of native WiFi settings menu
+   • No Apple Continuity features and enterprise-level security
+   • Can connect to Hidden Networks
+
+Select kext for your Intel WiFi device (default: itlwm): 1
+
+
+   OpCore Simplify                          ║
+╚══════════════════════════════════════════════════════════════════╝
+
+  Hardware Report: E:\ProgramData\OpCore-Simplify\SysReport\Report.json
+
+  macOS Version:   macOS Sequoia 15 (24.99.99)
+  SMBIOS:          MacBookPro14,3
+  Disabled Devices:
+    - Discrete GPU: NVIDIA GeForce GTX 1050 Ti
+    - Sound: NVIDIA High Definition Audio (SHARP HDMI)
+
+1. Select Hardware Report
+2. Select macOS Version
+3. Customize ACPI Patch
+4. Customize Kexts
+5. Customize SMBIOS Model
+6. Build OpenCore EFI
+
+Q. Quit
+
+Select an option: 6
+
+
+╔══════════════════════════════════════════════════════════════════╗
+║                     Choosing Codec Layout ID                     ║
+╚══════════════════════════════════════════════════════════════════╝
+
+List of Codec Layouts:
+
+ID   Comment
+------------------------------------------------------------------
+5    Realtek ALC256
+11   Rockjesus - Realtek ALC256 (3246) - dell 7559
+12   HafidzRadhival - DELL Vostro 5468 ALC256 (3246)
+13   Insanelydeepak - Realtek ALC256 (3246) for Dell Series
+14   Insanelydeepak - Realtek ALC256 (3246) for Dell Series with
+16   VicQ - Realtek ALC256 (3246) for Dell 7000 Series with 2.1Ch
+17   hjmmc - Realtek ALC256 (3246) for Magicbook 2018 with 4CH
+19   Wanwu - Realtek ALC256 (3246) for MateBook X Pro 2019
+20   Andres ZeroCross for Asus AIO PC V222UAK-WA541T
+21   Andres ZeroCross for Dell 5570
+22   Andres ZeroCross for Asus VivoBook Pro 17  N705UDR
+23   Andres ZeroCross for Razer Blade 15 RZ09-02705E75
+24   Andres ZeroCross - Intel NUC NUC10i5FNH
+28   vusun123 - ALC256 for Asus X555UJ
+33   insanelyme - ALC256 for Huawei Matebook D15 2018 (MRC-W10)
+38   lshbluesky - Realtek ALC256 for Samsung Galaxy Book NT750XDA
+56   DalianSky - Realtek ALC256 (3246) for Dell 7000 Series
+57   Kk Realtek ALC256 (3246) for magicbook
+66   lgs3137 - Realtek ALC256 for ASUS Y5000U X507UBR
+67   Realtek ALC256 for Dell OptiPlex 7080
+68   Littlesum - Realtek ALC256 (3246)  for Intel NUC9
+69   agasecond - Realtek ALC256 (3246) for Xiaomi Pro Enhanced 20
+70   b0ltun/agasecond - Realtek ALC256 (3246) for Hasee KingBook
+76   Durian - Realtek ALC256 (3246) for MateBook X Pro 2019（4CH）
+77   Asus x430_s4300FN by fangf2018
+88   Asus x430_s4300FN by fangf2018 (mic in and line in  mic in s
+95   Floron - Realtek ALC256 (3246) for Honor MagicBook Pro HBB-W
+97   DalianSky - Realtek ALC256 (3246) for MateBook X Pro 2019
+99   Hoping - Realtek ALC256 (3246) for XiaoMiPro 2020
+
+Note:
+- The default layout may not be optimal.
+- Test different layouts to find what works best for your system.
+
+Enter the ID of the codec layout you want to use (default: 97): 14
+
+
+╔══════════════════════════════════════════════════════════════════╗
+║                         Before Using EFI                         ║
+╚══════════════════════════════════════════════════════════════════╝
+
+Please complete the following steps:
+
+* USB Mapping:
+    - Use USBToolBox tool to map USB ports.
+    - Add created UTBMap.kext into the EFI\OC\Kexts folder.
+    - Remove UTBDefault.kext in the EFI\OC\Kexts folder.
+    - Edit config.plist:
+        - Use ProperTree to open your config.plist.
+        - Run OC Snapshot by pressing Command/Ctrl + R.
+        - If you have more than 15 ports on a single controller, enable the XhciPortLimit patch.
+        - Save the file when finished.
+
+Press Enter to continue...
+
+
+
+
+
+26：
+
+╔══════════════════════════════════════════════════════════════════╗
+║                Select Required Kernel Extensions                 ║
+╚══════════════════════════════════════════════════════════════════╝
+
+Checking for required kernel extensions...
+
+Note: Since macOS Tahoe 26 DP2, Apple has removed AppleHDA kext and uses the Apple T2 chip for audio management.
+To use AppleALC, you must rollback AppleHDA. Alternatively, you can use VoodooHDA.
+
+1. AppleALC - Requires AppleHDA rollback with OpenCore Legacy Patcher
+2. VoodooHDA - Lower audio quality, manual injection to /Library/Extensions
+
+Select audio kext for your system: 1
+
+*** Found Intel(R) Dual Band Wireless-AC 3165 #2 is Intel WiFi device.
+
+Note: Intel WiFi devices have two available kext options:
+
+1. AirportItlwm - Uses native WiFi settings menu
+   • Provides Handoff, Universal Clipboard, Location Services, Instant Hotspot support
+   • Supports enterprise-level security
+   • Since macOS Sequoia 15: Can work with OCLP root patch but may cause issues
+
+2. itlwm - More stable overall
+   • Works with HeliPort app instead of native WiFi settings menu
+   • No Apple Continuity features and enterprise-level security
+   • Can connect to Hidden Networks
+
+Select kext for your Intel WiFi device (default: itlwm): 1
+
+╔══════════════════════════════════════════════════════════════════╗
+║                         OpCore Simplify                          ║
+╚══════════════════════════════════════════════════════════════════╝
+
+  Hardware Report: E:\ProgramData\OpCore-Simplify\SysReport\Report.json
+
+  macOS Version:   macOS Tahoe 26 (25.99.99). Requires OpenCore Legacy Patcher
+  SMBIOS:          MacBookPro14,3
+  Disabled Devices:
+    - Discrete GPU: NVIDIA GeForce GTX 1050 Ti
+    - Sound: NVIDIA High Definition Audio (SHARP HDMI)
+
+1. Select Hardware Report
+2. Select macOS Version
+3. Customize ACPI Patch
+4. Customize Kexts
+5. Customize SMBIOS Model
+6. Build OpenCore EFI
+
+Q. Quit
+
+Select an option: 6
+
+
+╔══════════════════════════════════════════════════════════════════╗
+║                 OpenCore Legacy Patcher Warning                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+1. OpenCore Legacy Patcher is the only solution to enable dropped GPU and Broadcom WiFi
+   support in newer macOS versions, as well as to bring back AppleHDA for macOS Tahoe 26.
+
+2. OpenCore Legacy Patcher disables macOS security features including SIP and AMFI, which may
+   lead to issues such as requiring full installers for updates, application crashes, and
+   system instability.
+
+3. OpenCore Legacy Patcher is not officially supported for Hackintosh community.
+
+Important:
+Please consider these risks carefully before proceeding.
+
+Support for macOS Tahoe 26:
+To patch macOS Tahoe 26, you must download OpenCore-Patcher 3.0.0 or newer from
+my repository: lzhoang2801/OpenCore-Legacy-Patcher on GitHub.
+Older or official Dortania releases are NOT supported for Tahoe 26.
+
+Do you want to continue with OpenCore Legacy Patcher? (yes/No):
+
+
+╔══════════════════════════════════════════════════════════════════╗
+║                     Choosing Codec Layout ID                     ║
+╚══════════════════════════════════════════════════════════════════╝
+
+List of Codec Layouts:
+
+ID   Comment
+------------------------------------------------------------------
+5    Realtek ALC256
+11   Rockjesus - Realtek ALC256 (3246) - dell 7559
+12   HafidzRadhival - DELL Vostro 5468 ALC256 (3246)
+13   Insanelydeepak - Realtek ALC256 (3246) for Dell Series
+14   Insanelydeepak - Realtek ALC256 (3246) for Dell Series with
+16   VicQ - Realtek ALC256 (3246) for Dell 7000 Series with 2.1Ch
+17   hjmmc - Realtek ALC256 (3246) for Magicbook 2018 with 4CH
+19   Wanwu - Realtek ALC256 (3246) for MateBook X Pro 2019
+20   Andres ZeroCross for Asus AIO PC V222UAK-WA541T
+21   Andres ZeroCross for Dell 5570
+22   Andres ZeroCross for Asus VivoBook Pro 17  N705UDR
+23   Andres ZeroCross for Razer Blade 15 RZ09-02705E75
+24   Andres ZeroCross - Intel NUC NUC10i5FNH
+28   vusun123 - ALC256 for Asus X555UJ
+33   insanelyme - ALC256 for Huawei Matebook D15 2018 (MRC-W10)
+38   lshbluesky - Realtek ALC256 for Samsung Galaxy Book NT750XDA
+56   DalianSky - Realtek ALC256 (3246) for Dell 7000 Series
+57   Kk Realtek ALC256 (3246) for magicbook
+66   lgs3137 - Realtek ALC256 for ASUS Y5000U X507UBR
+67   Realtek ALC256 for Dell OptiPlex 7080
+68   Littlesum - Realtek ALC256 (3246)  for Intel NUC9
+69   agasecond - Realtek ALC256 (3246) for Xiaomi Pro Enhanced 20
+70   b0ltun/agasecond - Realtek ALC256 (3246) for Hasee KingBook
+76   Durian - Realtek ALC256 (3246) for MateBook X Pro 2019（4CH）
+77   Asus x430_s4300FN by fangf2018
+88   Asus x430_s4300FN by fangf2018 (mic in and line in  mic in s
+95   Floron - Realtek ALC256 (3246) for Honor MagicBook Pro HBB-W
+97   DalianSky - Realtek ALC256 (3246) for MateBook X Pro 2019
+99   Hoping - Realtek ALC256 (3246) for XiaoMiPro 2020
+
+Note:
+- The default layout may not be optimal.
+- Test different layouts to find what works best for your system.
+
+Enter the ID of the codec layout you want to use (default: 14): 14
+
+╔══════════════════════════════════════════════════════════════════╗
+║                         Before Using EFI                         ║
+╚══════════════════════════════════════════════════════════════════╝
+
+Please complete the following steps:
+
+* USB Mapping:
+    - Use USBToolBox tool to map USB ports.
+    - Add created UTBMap.kext into the EFI\OC\Kexts folder.
+    - Remove UTBDefault.kext in the EFI\OC\Kexts folder.
+    - Edit config.plist:
+        - Use ProperTree to open your config.plist.
+        - Run OC Snapshot by pressing Command/Ctrl + R.
+        - If you have more than 15 ports on a single controller, enable the XhciPortLimit patch.
+        - Save the file when finished.
+
+Press Enter to continue...
+
+
+
+
+
+cd ~/Downloads/macadmin-scripts-main
+python3 -m venv .venv
+source .venv/bin/activate
+pip install xattr
+
+python installinstallmacos.py  --help
+usage: installinstallmacos.py [-h] [--seedprogram SEEDPROGRAM] [--catalogurl CATALOGURL] [--workdir path_to_working_dir]
+                              [--compress] [--raw] [--ignore-cache]
+
+options:
+  -h, --help            show this help message and exit
+  --seedprogram SEEDPROGRAM
+                        Which Seed Program catalog to use. Valid values are CustomerSeed, DeveloperSeed, PublicSeed.
+  --catalogurl CATALOGURL
+                        Software Update catalog URL. This option overrides any seedprogram option.
+  --workdir path_to_working_dir
+                        Path to working directory on a volume with over 10G of available space. Defaults to current
+                        working directory.
+  --compress            Output a read-only compressed disk image with the Install macOS app at the root. This is now the
+                        default. Use --raw to get a read-write sparse image with the app in the Applications directory.
+  --raw                 Output a read-write sparse image with the app in the Applications directory. Requires less
+                        available disk space and is faster.
+  --ignore-cache        Ignore any previously cached files.
+
+
+mkdir -p ~/Downloads/macadmin-scripts-main/workdir/macOS-installer
+sudo python installinstallmacos.py  --workdir ~/Downloads/macadmin-scripts-main/workdir/macOS-installer
+
+#      ProductID    Version    Build   Post Date  Title
+ 1      061-26578    10.14.5  18F2059  2019-10-14  macOS Mojave
+ 2      061-26589    10.14.6   18G103  2019-10-14  macOS Mojave
+ 3      041-91758    10.13.6    17G66  2019-10-19  macOS High Sierra
+ 4      041-88800    10.14.4  18E2034  2019-10-23  macOS Mojave
+ 5      041-90855    10.13.5   17F66a  2019-10-23  Install macOS High Sierra Beta
+ 6      061-86291    10.15.3  19D2064  2020-03-23  macOS Catalina
+ 7      001-04366    10.15.4  19E2269  2020-05-04  macOS Catalina
+ 8      001-15219    10.15.5  19F2200  2020-06-15  macOS Catalina
+ 9      001-36735    10.15.6  19G2006  2020-08-06  macOS Catalina
+10      001-36801    10.15.6  19G2021  2020-08-12  macOS Catalina
+11      001-51042    10.15.7     19H2  2020-09-24  macOS Catalina
+12      001-57224    10.15.7     19H4  2020-10-27  macOS Catalina
+13      001-68446    10.15.7    19H15  2020-11-11  macOS Catalina
+14      042-45246    11.7.10  20G1427  2023-09-11  macOS Big Sur
+15      052-60131     12.7.4  21H1123  2024-03-18  macOS Monterey
+16      093-22004     13.7.8   22H730  2025-08-27  macOS Ventura
+17      089-04325       26.1    25B78  2025-11-03  macOS Tahoe
+18      093-99065     15.7.2   24G325  2025-11-03  macOS Sequoia
+19      093-92756     14.8.2   23J126  2025-11-03  macOS Sonoma
+20      093-37361       26.2    25C56  2026-01-08  macOS Tahoe
+21      089-70987     15.7.3   24G419  2026-01-08  macOS Sequoia
+22      089-71265     14.8.3   23J220  2026-01-08  macOS Sonoma
+23      047-32248    11.7.11  20G1443  2026-02-02  macOS Big Sur
+24      062-40406     12.7.6  21H1320  2026-02-09  macOS Monterey
+25      047-60297       26.3   25D125  2026-02-18  macOS Tahoe
+26      047-48630     15.7.4   24G517  2026-02-18  macOS Sequoia
+27      047-48595     14.8.4   23J319  2026-02-18  macOS Sonoma
+28      047-88311     26.3.1  25D2128  2026-03-04  macOS Tahoe
+29      047-94768     26.3.2  25D2140  2026-03-11  macOS Tahoe
+30      122-10756       26.4   25E246  2026-03-24  macOS Tahoe
+31      047-96175     15.7.5   24G624  2026-03-24  macOS Sequoia
+32      047-96015     14.8.5   23J423  2026-03-24  macOS Sonoma
+
+Choose a product to download (1-32): 30
+Downloading https://swcdn.apple.com/content/downloads/48/33/122-10756-A_YQ9DW48PY4/y7tlsqmgdnno1pkaf137h2l3gmq0t0ywaz/InstallInfo.plist...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   181  100   181    0     0   2145      0 --:--:-- --:--:-- --:--:--  2154
+Downloading https://swcdn.apple.com/content/downloads/48/33/122-10756-A_YQ9DW48PY4/y7tlsqmgdnno1pkaf137h2l3gmq0t0ywaz/com_apple_MobileAsset_MacSoftwareUpdate.plist...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 1483k  100 1483k    0     0  7111k      0 --:--:-- --:--:-- --:--:-- 7096k
+Downloading https://swcdn.apple.com/content/downloads/48/33/122-10756-A_YQ9DW48PY4/y7tlsqmgdnno1pkaf137h2l3gmq0t0ywaz/InstallAssistant.pkg...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 16.9G  100 16.9G    0     0  12.0M      0  0:24:03  0:24:03 --:--:-- 12.2M
+Downloading https://swdist.apple.com/content/downloads/48/33/122-10756-A_YQ9DW48PY4/y7tlsqmgdnno1pkaf137h2l3gmq0t0ywaz/InstallAssistant.pkm...
+Downloading https://swcdn.apple.com/content/downloads/48/33/122-10756-A_YQ9DW48PY4/y7tlsqmgdnno1pkaf137h2l3gmq0t0ywaz/UpdateBrain.zip...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 4265k  100 4265k    0     0  9031k      0 --:--:-- --:--:-- --:--:-- 9018k
+Downloading https://swcdn.apple.com/content/downloads/48/33/122-10756-A_YQ9DW48PY4/y7tlsqmgdnno1pkaf137h2l3gmq0t0ywaz/MajorOSInfo.pkg...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 1333k  100 1333k    0     0  4903k      0 --:--:-- --:--:-- --:--:-- 4921k
+Downloading https://swdist.apple.com/content/downloads/48/33/122-10756-A_YQ9DW48PY4/y7tlsqmgdnno1pkaf137h2l3gmq0t0ywaz/MajorOSInfo.pkm...
+Making empty sparseimage...
+installer: Package name is macOS Tahoe
+installer: Installing at base path /private/tmp/dmg.mgNSpE
+installer: The install was successful.
+*********************************************************
+*** Working around a very dumb Apple bug in a package ***
+*** postinstall script that fails to correctly target ***
+*** the Install macOS.app when installed to a volume  ***
+*** other than the current boot volume.               ***
+***       Please file feedback with Apple!            ***
+*********************************************************
+Product downloaded and installed to ~/Downloads/macadmin-scripts-main/workdir/macOS-installer/Install_macOS_26.4-25E246.sparseimage
+Making read-only compressed disk image containing Install macOS Tahoe.app...
+...................................................................................................2026-03-29 23:33:15.677 
+hdiutil[4423:44413] -[DIHelperProxy(Thread) waitForHelperDone] timed out waiting for helper registration
+............
+created: ~/Downloads/macadmin-scripts-main/workdir/macOS-installer/Install_macOS_26.4-25E246.dmg
+Disk image created at: ~/Downloads/macadmin-scripts-main/workdir/macOS-installer/Install_macOS_26.4-25E246.dmg
+
+
+
+
+
+
+Choose a product to download (1-32): 31
+Downloading https://swcdn.apple.com/content/downloads/22/06/047-96175-A_196UW6QK9G/dx1bmt6mb0q3llh0iyingau9ld5liod96r/MajorOSInfo.pkg...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 1225k  100 1225k    0     0  6167k      0 --:--:-- --:--:-- --:--:-- 6190k
+Downloading https://swdist.apple.com/content/downloads/22/06/047-96175-A_196UW6QK9G/dx1bmt6mb0q3llh0iyingau9ld5liod96r/MajorOSInfo.pkm...
+Downloading https://swcdn.apple.com/content/downloads/22/06/047-96175-A_196UW6QK9G/dx1bmt6mb0q3llh0iyingau9ld5liod96r/UpdateBrain.zip...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 4052k  100 4052k    0     0  8785k      0 --:--:-- --:--:-- --:--:-- 8791k
+Downloading https://swcdn.apple.com/content/downloads/22/06/047-96175-A_196UW6QK9G/dx1bmt6mb0q3llh0iyingau9ld5liod96r/InstallAssistant.pkg...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 14.5G  100 14.5G    0     0  20.1M      0  0:12:21  0:12:21 --:--:-- 20.0M
+Downloading https://swdist.apple.com/content/downloads/22/06/047-96175-A_196UW6QK9G/dx1bmt6mb0q3llh0iyingau9ld5liod96r/InstallAssistant.pkm...
+Downloading https://swcdn.apple.com/content/downloads/22/06/047-96175-A_196UW6QK9G/dx1bmt6mb0q3llh0iyingau9ld5liod96r/com_apple_MobileAsset_MacSoftwareUpdate.plist...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 1396k  100 1396k    0     0  6852k      0 --:--:-- --:--:-- --:--:-- 6877k
+Downloading https://swcdn.apple.com/content/downloads/22/06/047-96175-A_196UW6QK9G/dx1bmt6mb0q3llh0iyingau9ld5liod96r/InstallInfo.plist...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   181  100   181    0     0   2441      0 --:--:-- --:--:-- --:--:--  2445
+Making empty sparseimage...
+installer: Package name is macOS Sequoia
+installer: Installing at base path /private/tmp/dmg.N0LrKB
+installer: The install was successful.
+*********************************************************
+*** Working around a very dumb Apple bug in a package ***
+*** postinstall script that fails to correctly target ***
+*** the Install macOS.app when installed to a volume  ***
+*** other than the current boot volume.               ***
+***       Please file feedback with Apple!            ***
+*********************************************************
+Product downloaded and installed to ~/Downloads/macadmin-scripts-main/workdir/macOS-15.7.5-installer/Install_macOS_15.7.5-24G624.sparseimage
+Making read-only compressed disk image containing Install macOS Sequoia.app...
+................................................................................................................
+created: ~/Downloads/macadmin-scripts-main/workdir/macOS-15.7.5-installer/Install_macOS_15.7.5-24G624.dmg
+Disk image created at: ~/Downloads/macadmin-scripts-main/workdir/macOS-15.7.5-installer/Install_macOS_15.7.5-24G624.dmg
+
